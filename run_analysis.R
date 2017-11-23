@@ -27,7 +27,7 @@ colnames(consl_mean_std_det) <- gsub("-", "_", colnames(consl_mean_std_det))
 #Map activity names to activities in the data set
 act_train <- read.table("UCI HAR Dataset/train/y_train.txt")
 act_test <- read.table("UCI HAR Dataset/test/y_test.txt")
-act_consl <- rbind(activities_train,activities_test)[,1]
+act_consl <- rbind(act_train,act_test)[,1]
 labels  <- read.table("UCI HAR Dataset/activity_labels.txt")[,2]
 act_consl <- labels[act_consl]
 data_act <- cbind(ActivityName = act_consl,consl_det)
