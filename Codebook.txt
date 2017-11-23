@@ -1,0 +1,5 @@
+consl_det is the merged Data set for Training and Test Data
+consl_mean_std_det contains only the the measurements on the mean and standard deviation 
+data_act has the activity names mapped to the activities in the data set
+data_act_subj has the subject information mapped to the activities in the data set
+average_data_act_subj is the tidy data set with the average of each variable for each activity and each subject.
