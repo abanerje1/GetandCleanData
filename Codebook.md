@@ -1,4 +1,4 @@
-Data
+## Data
 
 For each record it is provided:
 
@@ -14,7 +14,7 @@ LAYING
 
 The average of each meassurement for each subject and each activity(Float)
 
-Variables
+##Variables
 
 The file shows the following meassurements for each subject and each activity:
 
