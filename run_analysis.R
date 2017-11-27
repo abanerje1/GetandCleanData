@@ -1,5 +1,5 @@
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip","testfile3.zip",mode = "wb")
-unzip("testfile2.zip")
+unzip("testfile3.zip")
 
 #Merges the Training and Test Data Set
 train_det <- read.table("UCI HAR Dataset/train/X_train.txt")
@@ -30,7 +30,7 @@ act_test <- read.table("UCI HAR Dataset/test/y_test.txt")
 act_consl <- rbind(act_train,act_test)[,1]
 labels  <- read.table("UCI HAR Dataset/activity_labels.txt")[,2]
 act_consl <- labels[act_consl]
-data_act <- cbind(ActivityName = act_consl,consl_det)
+consl_mean_std_det <- cbind(ActivityName = act_consl,consl_mean_std_det)
 
 
 
@@ -38,7 +38,7 @@ data_act <- cbind(ActivityName = act_consl,consl_det)
 subjects_train <- read.table("UCI HAR Dataset/train/subject_train.txt")
 subjects_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
 subjects_consl <- rbind(subjects_train,subjects_test)[,1]
-data_act_subj  <- cbind(SubjectNo = subjects_consl,data_act)
+data_act_subj  <- cbind(SubjectNo = subjects_consl,consl_mean_std_det)
 
 colnames(data_act_subj) <- make.names(names=names(data_act_subj), unique=TRUE, allow_ = TRUE)
 
@@ -48,6 +48,6 @@ average_data_act_subj <- data_act_subj %>%
   group_by(SubjectNo,ActivityName) %>%
   summarize_each(funs(mean))
 
-write.table(average_data_act_subj,row.name = FALSE,file = "tidy_data_set.txt")    
+write.table(average_data_act_subj,row.name = FALSE,file = "tidy_data_set_4.txt")    
 
 
