@@ -44,10 +44,11 @@ colnames(data_act_subj) <- make.names(names=names(data_act_subj), unique=TRUE, a
 
 
 library('dplyr')
+
 average_data_act_subj <- data_act_subj %>%
   group_by(SubjectNo,ActivityName) %>%
   summarize_each(funs(mean))
 
-write.table(average_data_act_subj,row.name = FALSE,file = "tidy_data_set_4.txt")    
+write.table(average_data_act_subj,row.name = FALSE,file = "tidy_data_set.txt")    
 
 
